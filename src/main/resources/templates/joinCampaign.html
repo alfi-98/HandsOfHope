@@ -33,45 +33,94 @@
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-		
-<div class="modal fade" id="nowModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Volunteer Now Form</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form th:action="@{/volunteerNow}" method="post">
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">First Name</label>
-            <input type="text" class="form-control" id="recipient-name" name="f_name">
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Last Name</label>
-            <input type="text" class="form-control" id="recipient-name" name="l_name">
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Email</label>
-            <input type="text" class="form-control" id="recipient-name" name="email">
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Campaign Name</label>
-            <input type="text" class="form-control" id="recipient-name" name="campaign_name">
-          </div>
-          <div class="form-group">
-              <button type="submit" class="btn btn-outline-warning">Submit</button>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
-        
-      </div>
-    </div>
-  </div>
-</div>  <!--
 
+ <header id="header" class="fixed-top " style="background-color: black">
+    <div class="container d-flex align-items-center justify-content-lg-between">
+
+      <h1 class="logo me-auto me-lg-0"><a th:href="@{/index}">Hands Of Hope<span>.</span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li class="dropdown"><a href="#services"><span>Activities</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#"></a></li>
+              <li class="dropdown"><a href="#"><span>Campaigns</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a th:href="@{/previous_campaigns}">Previous Campaigns</a></li>
+                  <li><a th:href="@{/ongoing_campaigns}">Ongoing Campaigns</a></li>
+                  <li><a th:href="@{/upcoming_campaigns}">Upcoming Campaigns</a></li>
+                  
+                </ul>
+              </li>
+              <li><a th:href="@{/organizations}">Organizations</a></li>
+              <li><a th:href="@{/volunteers}">Volunteers</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+	  <div>
+
+	  <a th:href="@{/joinCampaign}" class="get-started-btn scrollto">Volunteer Now</a>
+      <a th:href="@{/userProfile}" class="get-started-btn scrollto">Profile</a>
+      <a th:href="@{/index}" class="get-started-btn scrollto">Logout</a>
+      </div>
+
+    </div>
+  </header>
+		
+		
+<section id="register_now" class="register_now">
+      <div class="container" data-aos="fade-up">
+		<div class="section-title">
+          <h2>Volunteer Now</h2>
+          <p>Joining Form</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+            <div class="col-lg-8 mt-5 mt-lg-0">
+            
+            <div th:if="${param.success}">
+            	<div class = "alert alert-info">Registration Successful!</div>
+            </div>
+            
+			<form th:action="@{/volunteerNow}" method="post" >
+              <div class="row">
+                <div class="form-group mt-3">
+                <label class="control-label" for="f_name">First Name</label>
+                  <input id="f_name" class="form-control" th:field="*{f_name}" required autofocus="autofocus">
+                </div>
+                <div class="form-group mt-3">
+                <label class="control-label" for="l_name">Last Name</label>
+                  <input id="l_name" class="form-control" th:field="*{l_name}" required autofocus="autofocus">
+                </div>
+                <div class="form-group mt-3">
+                <label class="control-label" for="email">Email</label>
+                  <input class="form-control" id="email" th:field="*{email}" required autofocus="autofocus">
+                </div>
+                <div class="form-group mt-3">
+                <label class="control-label" for="l_name">Campaign Name</label>
+                  <input id="campaign_name" class="form-control" th:field="*{campaign_name}" required autofocus="autofocus">
+                </div>
+               
+                 
+              </div>
+              <br>
+              <div class="text-center"><button type="submit" class="btn btn-outline-warning btn-lg">Register</button></div>
+              <br>
+             
+              
+            </form>
+			</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
     <!-- Analytics -->
 

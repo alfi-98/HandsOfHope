@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class VolunteerProjectApplication {
 	
 	public VolunteerProjectApplication() {
-		
+	
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(VolunteerProjectApplication.class, args);
